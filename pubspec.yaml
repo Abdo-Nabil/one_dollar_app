@@ -39,7 +39,6 @@ dependencies:
   flutter_native_splash: ^2.2.9
 
 dev_dependencies:
-
   flutter_test:
     sdk: flutter
 
@@ -49,7 +48,7 @@ flutter_icons:
   # flutter pub run flutter_launcher_icons:main
   android: true
   ios: true
-  image_path: "assets/images/splash_icon.png"
+  image_path: "assets/images/launcher_icon.png"
   adaptive_icon_foreground: "assets/images/splash_icon.png"
   adaptive_icon_background: "#18224d"
 
