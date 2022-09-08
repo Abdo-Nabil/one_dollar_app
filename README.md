@@ -1,16 +1,12 @@
-# one_dollar_animation
+<!-- vertical space &nbsp; -->
 
-One Dollar App with animation
+# One Dollar App
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## A simple app that costs only one dollar to buy from play store for android devices. 
 
-A few resources to get you started if this is your first Flutter project:
+ ## ✌ Preview 
+ 
+ <img src=screenshots/image1.png  width="250" height = "500"/> &ensp;   <img src=screenshots/image2.png  width="250" height = "500"/> &ensp; <img src=screenshots/image3.png  width="250" height = "500"/>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ☎️&ensp;abdo.sw.eng@gmail.com
