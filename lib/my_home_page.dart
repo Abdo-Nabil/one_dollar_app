@@ -63,20 +63,33 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     color: Colors.teal,
                   ),
                 ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.height * 0.05,
+                // ),
                 Stack(
                   children: [
-                    Lottie.asset(AppStrings.celebrationBoxPath),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.50,
+                      width: double.infinity,
+                      child: Lottie.asset(AppStrings.celebrationBoxPath),
+                    ),
                     GestureDetector(
                       child: isActive
-                          ? Lottie.asset(
-                              AppStrings.balloonCelebrationPath,
-                              animate: false,
-                              controller: _controller,
-                              // onLoaded: (composition) {
-                              //   _controller.duration = composition.duration;
-                              //   debugPrint(composition.duration.inMilliseconds
-                              //       .toString());
-                              // },
+                          ? SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.50,
+                              width: double.infinity,
+                              child: Center(
+                                child: Lottie.asset(
+                                  AppStrings.balloonCelebrationPath,
+                                  animate: false,
+                                  controller: _controller,
+                                  // onLoaded: (composition) {
+                                  //   _controller.duration = composition.duration;
+                                  //   debugPrint(composition.duration.inMilliseconds
+                                  //       .toString());
+                                  // },
+                                ),
+                              ),
                             )
                           : Container(
                               width: double.infinity,
