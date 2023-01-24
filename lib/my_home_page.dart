@@ -13,7 +13,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   late final AnimationController _controller;
   bool isActive = false;
-
+  int counter = 0;
+  //
   @override
   void initState() {
     //
@@ -48,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         appBar: AppBar(
           title: const Text(AppStrings.oneDollarApp),
           centerTitle: true,
+          backgroundColor: AppStrings.textColor,
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -60,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
-                    color: Colors.teal,
+                    color: AppStrings.textColor,
                   ),
                 ),
                 // SizedBox(
@@ -73,23 +75,42 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                       width: double.infinity,
                       child: Lottie.asset(AppStrings.celebrationBoxPath),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.all(32.0),
+                      child: Center(
+                        child: Text(
+                          counter.toString(),
+                          style: TextStyle(
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
+                            color: AppStrings.textColor,
+                          ),
+                        ),
+                      ),
+                    ),
                     GestureDetector(
                       child: isActive
-                          ? SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.50,
-                              width: double.infinity,
-                              child: Center(
-                                child: Lottie.asset(
-                                  AppStrings.balloonCelebrationPath,
-                                  animate: false,
-                                  controller: _controller,
-                                  // onLoaded: (composition) {
-                                  //   _controller.duration = composition.duration;
-                                  //   debugPrint(composition.duration.inMilliseconds
-                                  //       .toString());
-                                  // },
+                          ? GestureDetector(
+                              child: SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.50,
+                                width: double.infinity,
+                                child: Center(
+                                  child: Lottie.asset(
+                                    AppStrings.balloonCelebrationPath,
+                                    animate: false,
+                                    controller: _controller,
+                                    // onLoaded: (composition) {
+                                    //   _controller.duration = composition.duration;
+                                    //   debugPrint(composition.duration.inMilliseconds
+                                    //       .toString());
+                                    // },
+                                  ),
                                 ),
                               ),
+                              onTap: () {
+                                resetAnimation();
+                              },
                             )
                           : Container(
                               width: double.infinity,
@@ -97,11 +118,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                               color: Colors.white.withOpacity(0.55),
                             ),
                       onTap: () {
-                        setState(() {
-                          isActive = true;
-                          debugPrint('pressed');
-                        });
-                        _controller.forward();
+                        startAnimation();
                       },
                     ),
                   ],
@@ -111,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
-                    color: Colors.teal,
+                    color: AppStrings.textColor,
                   ),
                 ),
               ],
@@ -120,5 +137,23 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         ),
       ),
     );
+  }
+
+  startAnimation() {
+    setState(() {
+      isActive = true;
+      counter++;
+      debugPrint('pressed');
+    });
+    _controller.forward();
+  }
+
+  resetAnimation() {
+    setState(() {
+      _controller.reset();
+      counter++;
+      debugPrint('reset animation !!!');
+    });
+    _controller.forward();
   }
 }
